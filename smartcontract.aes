@@ -26,7 +26,7 @@ payable contract ParkingLot =
             None  => abort("There is no Cars with that ID.")
             Some(x) => x  
 
-    stateful entrypoint addPlayer(nameOfCar' : s,nameOfOwner' : s, lisencePlate' : s) = 
+    stateful entrypoint addCar(nameOfCar' : s,nameOfOwner' : s, lisencePlate' : s) = 
        
         let index = getTotalCars() + 1
         let car = {id= index,  owner  = Call.caller, nameOfCar = nameOfCar', nameOfOwner = nameOfOwner',lisencePlate =  lisencePlate', entryDate = Chain.timestamp, exitDate = 0  }

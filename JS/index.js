@@ -27,7 +27,7 @@ payable contract ParkingLot =
             None  => abort("There is no Cars with that ID.")
             Some(x) => x  
 
-    stateful entrypoint addPlayer(nameOfCar' : s,nameOfOwner' : s, lisencePlate' : s) = 
+    stateful entrypoint addCar(nameOfCar' : s,nameOfOwner' : s, lisencePlate' : s) = 
        
         let index = getTotalCars() + 1
         let car = {id= index,  owner  = Call.caller, nameOfCar = nameOfCar', nameOfOwner = nameOfOwner',lisencePlate =  lisencePlate', entryDate = Chain.timestamp, exitDate = 0  }
@@ -41,6 +41,8 @@ payable contract ParkingLot =
 
     entrypoint getTotalCars() : i = 
         state.totalCars
+
+        
 
         
 
@@ -154,3 +156,34 @@ jQuery("#carBody").on("click", ".checkOut", async function(event){
   
  
 )
+
+// Register Car
+$('#btnOne').click(async function () {
+  // $("#loadings").show();
+
+  var name = ($('#owner').val()),
+
+  car = ($('#car').val());
+
+  lisencePlates = ($('#lisencePlate').val());
+
+  await contractCall("addCar", [car,name,lisencePlates], [100000])
+
+  var index  = await callStatic('getTotalCars', [])
+
+  const car = await callStatic('getCar', [index])
+    console.log(car)
+    console.log("This is the cars exit date : ", car.exitDate)
+
+    CarArray.push({
+      id     : car.id,
+      owner           : car.owner,
+      nameOfCar          : car.nameOfCar,
+      nameOfOwner          : car.nameOfCar,
+      lisencePlate            : car.lisencePlate,
+      entryDate: Date(car.entryDate),
+      exitDate : Date(car.exitDate)
+    })
+  renderCars()
+
+});
