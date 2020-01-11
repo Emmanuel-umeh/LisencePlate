@@ -43,12 +43,7 @@ payable contract ParkingLot =
         state.totalCars
 
         
-    // payable stateful entrypoint play(index : i, prize : i) =
-    //     let detail = getPlayer(index)
-    //     Chain.spend(detail.owner, prize)
-    //     let updatedPrize = detail.amountWon + prize
-    //     let updatedDetails = state.players{ [index].amountWon = updatedPrize }
-    //     put(state{ players = updatedDetails })
+
 
 
 `;
