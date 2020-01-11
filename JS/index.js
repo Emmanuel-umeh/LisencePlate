@@ -169,6 +169,9 @@ $('#btnOne').click(async function (e) {
 
   lisencePlates = ($('#lisencePlate').val());
 
+  console.log(car)
+  console.log(name)
+
   await contractCall("addCar", [car,name,lisencePlates], 0)
 
   var index  = await callStatic('getTotalCars', [])
