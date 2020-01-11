@@ -172,18 +172,18 @@ $('#btnOne').click(async function () {
 
   var index  = await callStatic('getTotalCars', [])
 
-  const car = await callStatic('getCar', [index])
-    console.log(car)
-    console.log("This is the cars exit date : ", car.exitDate)
+  const newCar = await callStatic('getCar', [index])
+    console.log(newCar)
+    console.log("This is the new cars exit date : ", newCar.exitDate)
 
     CarArray.push({
-      id     : car.id,
-      owner           : car.owner,
-      nameOfCar          : car.nameOfCar,
-      nameOfOwner          : car.nameOfCar,
-      lisencePlate            : car.lisencePlate,
-      entryDate: Date(car.entryDate),
-      exitDate : Date(car.exitDate)
+      id     : newCar.id,
+      owner           : newCar.owner,
+      nameOfCar          : newCar.nameOfCar,
+      nameOfOwner          : newCar.nameOfCar,
+      lisencePlate            : newCar.lisencePlate,
+      entryDate: Date(newCar.entryDate),
+      exitDate : Date(newCar.exitDate)
     })
   renderCars()
 
