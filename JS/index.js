@@ -126,7 +126,7 @@ window.addEventListener('load', async () => {
 });
 console.log("Finished")
 
-jQuery("#carBody").on("click", ".checkOut", async function(event){
+jQuery("#carBody").on("click", "#checkOut", async function(event){
   // $("#loader").show();
   console.log("checking out")
   
