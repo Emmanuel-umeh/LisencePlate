@@ -104,13 +104,14 @@ window.addEventListener('load', async () => {
    
     const car = await callStatic('getCar', [i])
     console.log(car)
+    console.log("This is the cars exit date : ", car.exitDate)
 
     CarArray.push({
       id     : car.id,
       owner           : car.owner,
       nameOfCar          : car.nameOfCar,
       nameOfOwner          : car.nameOfCar,
-      lisencePlate            :car.lisencePlate,
+      lisencePlate            : car.lisencePlate,
       entryDate: Date(car.entryDate),
       exitDate : Date(car.exitDate)
     })
@@ -123,41 +124,33 @@ window.addEventListener('load', async () => {
 });
 console.log("Finished")
 
-// jQuery("#articlesBody").on("click", ".appreciateBtn", async function(event){
-//   $("#loader").show();
-//   let value = $(this).siblings('input').val(),
-//       index = event.target.id;
-
-//   await contractInstance.methods.appreciateArticle(index, { amount: value }).catch(console.error);
-//   await contractCall('appreciateArticle', [index], value )
-
-//   const foundIndex = CarArray.findIndex(article => article.index == event.target.id);
-//   CarArray[foundIndex].Amount += parseInt(value, 10);
-
+jQuery("#carBody").on("click", ".checkOut", async function(event){
+  // $("#loader").show();
+  console.log("checking out")
   
-//   renderCars();
-//   $("#loader").hide();
-// });
+      index = event.target.id;
+      console.log(index)
 
-// $('#publishBtn').click(async function(){
-//   console.log("clicked submit")
-//   $("#loader").show();
-//   const title = ($('#title').val()),
-//     	  name = ($('#name').val()),
-//     	  article = ($('#info').val()),
-//         caption = ($('#caption').val());
 
-//   // await contractInstance.methods.publishArticle(title, name, article, caption);
-//   await contractCall('publishArticle', [title, name, article, caption], 0)
+  await contractCall('checkOut', [index], 0 )
+  
 
-//   CarArray.push({
-//     articleTitle: title,
-//     author: name,
-//     article: article,
-//     caption: caption,
-//     index: CarArray.length+1,
-//     amount: 0,
-//   });
-//   renderCars();
-//   $("#loader").hide();
-// });
+  const car = await callStatic('getCar', [index])
+    console.log(car)
+    console.log("This is the cars exit date : ", car.exitDate)
+
+    CarArray.push({
+      id     : car.id,
+      owner           : car.owner,
+      nameOfCar          : car.nameOfCar,
+      nameOfOwner          : car.nameOfCar,
+      lisencePlate            : car.lisencePlate,
+      entryDate: Date(car.entryDate),
+      exitDate : Date(car.exitDate)
+    })
+
+    renderCars()
+  }
+  
+ 
+)
