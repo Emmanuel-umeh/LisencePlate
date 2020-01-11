@@ -111,8 +111,8 @@ window.addEventListener('load', async () => {
       nameOfCar          : car.nameOfCar,
       nameOfOwner          : car.nameOfCar,
       lisencePlate            :car.lisencePlate,
-      entryDate: Date(car.entryDate).getHours(),
-      exitDate : Date(car.exitDate).getHours()
+      entryDate: Date(car.entryDate),
+      exitDate : Date(car.exitDate)
     })
   }
 
