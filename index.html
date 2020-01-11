@@ -46,17 +46,26 @@
             <button type="submit" class="btn mx-auto d-block mt-5 rounded-0 shadow" id="btnOne">Add Car</button>
         </form>
     </div>
+
+
+
+
+    
     <div class="table-container mt-5 mb-5 w-75 mx-auto" >
             <h5 class="text-center mb-3">List of Cars in Parking Lot</h5>
             <input type="text" class="w-100 mb-3" id="searchInput" placeholder="Search...">
+            
+            <script id="template" type="x-tmpl-mustache">
+
+                {{#CarArray}}
             <table class="table table-striped shadow " id="parkingTable">
                     <thead class="text-white" id="tableHead">
                       <tr>
-                        <th scope="col">Owner</th>
-                        <th scope="col">Car</th>
-                        <th scope="col">License Plate</th>
-                        <th scope="col">Entry Date</th>
-                        <th scope="col">Exit Date</th>
+                        <th scope="col">{{nameOfOwner}}</th>
+                        <th scope="col">{{nameOfCar}}</th>
+                        <th scope="col">{{lisencePlate}} Plate</th>
+                        <th scope="col">{{entryDate}}</th>
+                        <th scope="col">{{exitDate}}</th>
                         <th scope="col">Actions</th>
                       </tr>
                     </thead>
@@ -64,7 +73,12 @@
                      
                     </tbody>
                   </table>
-    </div>
+  
+    {{/CarArray}}
+
+
+</script>
+</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.js">
     </script>
