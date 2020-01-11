@@ -57,7 +57,7 @@ function renderCars() {
   let template = $('#template').html();
   Mustache.parse(template);
   let rendered = Mustache.render(template, {CarArray});
-  $('#articlesBody').html(rendered);
+  $('#carBody').html(rendered);
 }
 
 async function callStatic(func, args) {
