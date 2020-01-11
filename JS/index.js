@@ -111,15 +111,17 @@ window.addEventListener('load', async () => {
       nameOfCar          : car.nameOfCar,
       nameOfOwner          : car.nameOfCar,
       lisencePlate            :car.lisencePlate,
-      entryDate: Date(car.entryDate),
-      exitDate : Date(car.exitDate)
+      entryDate: Date(car.entryDate).getHours(),
+      exitDate : Date(car.exitDate).getHours()
     })
   }
 
   renderCars();
+  
 
 //   $("#loader").hide();
 });
+console.log("Finished")
 
 // jQuery("#articlesBody").on("click", ".appreciateBtn", async function(event){
 //   $("#loader").show();
