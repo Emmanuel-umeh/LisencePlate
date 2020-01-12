@@ -130,7 +130,7 @@ $("#carBody").click(".checkOut", async function (event) {
   // $("#loader").show();
   console.log("checking out")
   
-      index = event.target.id;
+      var index = event.target.id;
       console.log(index)
 
 
