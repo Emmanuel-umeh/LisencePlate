@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/bootstrap.min.css">
     <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/card.css">
     <title>Parking Lot</title>
 </head>
 
@@ -60,21 +61,17 @@
             <script id="template" type="x-tmpl-mustache">
 
                 {{#CarArray}}
-            <table class="table table-striped shadow " id="parkingTable">
-                    <thead class="text-white" id="tableHead">
-                      <tr>
-                        <th scope="col">{{nameOfOwner}}</th>
-                        <th scope="col">{{nameOfCar}}</th>
-                        <th scope="col">{{lisencePlate}}</th>
-                        <th scope="col">{{entryDate}}</th>
-                        <th scope="col">{{exitDate}}</th>
-                        <th scope="col">Actions</th>
-                        <th scope="col"><button class= "btn checkOut" id= {{id}}>Checkout</button></th>
-                      </tr>
-                    </thead>
-                    <tbody id="tableBody">
-                     
-                    </tbody>
+
+                <div class="card card-5">
+                    <h3>Owner: {{nameOfOwner}}</h3>
+                    <h3>Car: {{nameOfCar}}</h3>
+                    <p>Plate Number : {{lisencePlate}}</p>
+                    <p>Check In time : {{entryDate}}</p>
+                    
+
+
+                </div>
+            
                   </table>
   
     {{/CarArray}}
