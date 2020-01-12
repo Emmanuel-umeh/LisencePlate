@@ -3,6 +3,7 @@ payable contract ParkingLot =
     type i = int
     type s = string
     type a = address
+    type b = bool
 
     record car = {
         id : i,
@@ -11,7 +12,8 @@ payable contract ParkingLot =
         nameOfOwner : s,
         lisencePlate	  : s,
         entryDate : i,
-        exitDate : i
+        exitDate : i,
+        checkedOut : b
          }
    
     record state = 
@@ -30,17 +32,28 @@ payable contract ParkingLot =
     stateful entrypoint addCar(nameOfCar' : s,nameOfOwner' : s, lisencePlate' : s) = 
        
         let index = getTotalCars() + 1
-        let car = {id= index,  owner  = Call.caller, nameOfCar = nameOfCar', nameOfOwner = nameOfOwner',lisencePlate =  lisencePlate', entryDate = Chain.timestamp, exitDate = 0  }
+        let car = {id= index,  
+            owner  = Call.caller,
+            nameOfCar = nameOfCar',
+            nameOfOwner = nameOfOwner',
+            lisencePlate =  lisencePlate',
+            entryDate = Chain.timestamp,
+            exitDate = 0,
+            checkedOut = false   }
         put(state {cars[index] = car, totalCars = index})
 
-    stateful entrypoint checkOut(index : i) = 
-        Chain.spend(Contract.address, 100000)
+    stateful payable entrypoint checkOut(index : i) = 
         let carToCheckOut = getCar(index)
+        require(carToCheckOut.checkedOut != true, "This car has already been checkout out")
+        Chain.spend(Contract.address, 100000)
+        
         let updateDate = state.cars[index].entryDate
-        put(state{cars[index].exitDate = updateDate + Chain.block_height  })
+        put(state{cars[index].exitDate = updateDate + Chain.block_height, cars[index].checkedOut = true   })
 
     entrypoint getTotalCars() : i = 
         state.totalCars
+
+        
 
         
 
