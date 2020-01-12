@@ -55,11 +55,6 @@ payable contract ParkingLot =
 
         
 
-        
-
-        
-
-
 
 `;
 const contractAddress ='ct_8b3NePSt93LaBWWuRmNQLwMzxwp3NS9afoMuf89rkH9LrhPEm';
