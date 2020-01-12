@@ -166,7 +166,7 @@ $("#carBody").click(".checkOut", async function (event) {
 )
 
 // Register Car
-$('#btnOne').click(async function (e) {
+$('#btnOne').click(async function () {
   // e.preventDefault()
   console.log("Saving car")
   // $("#loadings").show();
