@@ -112,10 +112,10 @@ window.addEventListener('load', async () => {
       id     : car.id,
       owner           : car.owner,
       nameOfCar          : car.nameOfCar,
-      nameOfOwner          : car.nameOfCar,
+      nameOfOwner          : car.nameOfOwner,
       lisencePlate            : car.lisencePlate,
       entryDate: Date(car.entryDate),
-      exitDate : Date(car.exitDate)
+      exitDate : Date("")
     })
   }
 
@@ -137,19 +137,19 @@ $("#carBody").click(".checkOut", async function (event) {
   await contractCall('checkOut', [index], 0 )
   
 
-  const car = await callStatic('getCar', [index])
-    console.log(car)
-    console.log("This is the cars exit date : ", car.exitDate)
+  // const car = await callStatic('getCar', [index])
+  //   console.log(car)
+  //   console.log("This is the cars exit date : ", car.exitDate)
 
-    CarArray.push({
-      id     : car.id,
-      owner           : car.owner,
-      nameOfCar          : car.nameOfCar,
-      nameOfOwner          : car.nameOfCar,
-      lisencePlate            : car.lisencePlate,
-      entryDate: Date(car.entryDate),
-      exitDate : Date(car.exitDate)
-    })
+    // CarArray.push({
+    //   id     : car.id,
+    //   owner           : car.owner,
+    //   nameOfCar          : car.nameOfCar,
+    //   nameOfOwner          : car.nameOfCar,
+    //   lisencePlate            : car.lisencePlate,
+    //   entryDate: Date(car.entryDate),
+    //   exitDate : Date(car.exitDate)
+    // })
 
     renderCars()
   }
@@ -184,7 +184,7 @@ $('#btnOne').click(async function (e) {
       id     : newCar.id,
       owner           : newCar.owner,
       nameOfCar          : newCar.nameOfCar,
-      nameOfOwner          : newCar.nameOfCar,
+      nameOfOwner          : newCar.nameOfOwner,
       lisencePlate            : newCar.lisencePlate,
       entryDate: Date(newCar.entryDate),
       exitDate : Date(newCar.exitDate)
