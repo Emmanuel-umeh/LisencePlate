@@ -134,36 +134,36 @@ window.addEventListener('load', async () => {
 });
 console.log("Finished")
 
-$("#carBody").click(".checkOut", async function (event) {
-  // $("#loader").show();
-  console.log("checking out")
+// $("#carBody").click(".checkOut", async function (event) {
+//   // $("#loader").show();
+//   console.log("checking out")
   
-      var index = event.target.id;
-      console.log(index)
+//       var index = event.target.id;
+//       console.log(index)
 
 
-  await contractCall('checkOut', [index], 0 )
+//   await contractCall('checkOut', [index], 0 )
   
 
-  // const car = await callStatic('getCar', [index])
-  //   console.log(car)
-  //   console.log("This is the cars exit date : ", car.exitDate)
+//   // const car = await callStatic('getCar', [index])
+//   //   console.log(car)
+//   //   console.log("This is the cars exit date : ", car.exitDate)
 
-    // CarArray.push({
-    //   id     : car.id,
-    //   owner           : car.owner,
-    //   nameOfCar          : car.nameOfCar,
-    //   nameOfOwner          : car.nameOfCar,
-    //   lisencePlate            : car.lisencePlate,
-    //   entryDate: Date(car.entryDate),
-    //   exitDate : Date(car.exitDate)
-    // })
+//     // CarArray.push({
+//     //   id     : car.id,
+//     //   owner           : car.owner,
+//     //   nameOfCar          : car.nameOfCar,
+//     //   nameOfOwner          : car.nameOfCar,
+//     //   lisencePlate            : car.lisencePlate,
+//     //   entryDate: Date(car.entryDate),
+//     //   exitDate : Date(car.exitDate)
+//     // })
 
-    renderCars()
-  }
+//     renderCars()
+//   }
   
  
-)
+// )
 
 // Register Car
 $('#btnOne').click(async function () {
@@ -195,7 +195,7 @@ $('#btnOne').click(async function () {
       nameOfOwner          : newCar.nameOfOwner,
       lisencePlate            : newCar.lisencePlate,
       entryDate: Date(newCar.entryDate),
-      exitDate : Date(newCar.exitDate)
+      exitDate : newCar.exitDate
     })
   renderCars()
 
